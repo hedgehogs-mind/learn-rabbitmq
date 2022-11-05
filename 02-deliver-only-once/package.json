@@ -1,0 +1,12 @@
+{
+  "name": "01-async-queue",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "producer": "node producer.js",
+    "consumer": "node consumer.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3"
+  }
+}

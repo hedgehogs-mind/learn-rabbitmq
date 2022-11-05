@@ -17,11 +17,22 @@ The goal was to get familiar with RabbitMQ.
 
 # Questions that came up
 
-- What is a channel specifically? How is it different from a queue?
-- How is a channel closed by the broker? In the code examples I saw a `null` message.
-- What happens if the consumer does not acknowledge a message?
-- Which data formats does RabbitMQ support?
-- How does `amqplib` deserialize messages?
+What is a channel specifically? How is it different from a queue?
+> There is no direct relation between Channel and Queue. A Channel is used to send AMQP commands to the broker. This can be the creation of a queue or similar, but these concepts are not tied together.
+
+How is a channel closed by the broker? In the code examples I saw a `null` message.
+> ...
+ 
+What happens if the consumer does not acknowledge a message?
+> If message was not acknowledged and application fails, it will be redelivered automatically and redelivered property on envelope will be set to true (unless you consume them with no-ack = true flag).
+> ...
+> Beware infinitely nacked messages while redelivery count doesn't implemented in RabbitMQ and in AMQP protocol at all.
+
+Which data formats does RabbitMQ support?
+> Messages also have a payload (the data that they carry), which AMQP brokers treat as an opaque byte array. The broker will not inspect or modify the payload. It is possible for messages to contain only attributes and no payload. It is common to use serialisation formats like JSON, Thrift, Protocol Buffers and MessagePack to serialize structured data in order to publish it as the message payload. Protocol peers typically use the "content-type" and "content-encoding" fields to communicate this information, but this is by convention only.
+
+How does `amqplib` deserialize messages?
+> Plain byte array/buffer.
 
 # The setup
 

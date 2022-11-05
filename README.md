@@ -11,8 +11,12 @@ The repository is split up into several sessions.
 # Sessions
 
 - [🔗 01 simple queue](01-simple-queue)
+- [🔗 02 deliver only once](02-deliver-only-once)
 
 # Things I want/need to try out
 
-- deliver only once
+- fanout to multiple different queues
+- fanout to multiple service instances with "the same queue"
 - circular call detection
+- message priorities
+- message timeouts
