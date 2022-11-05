@@ -35,7 +35,7 @@ Start the RabbitMQ server beforehand:
 ```
 
 By running the following commands (in parallel), you can see a simple string
-message being send from the producer to the consumer.
+message being send from the producer to one of the two consumers.
 
 ```
 // Console 1
